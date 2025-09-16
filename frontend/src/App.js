@@ -12,7 +12,7 @@ import CardDetails from "./pages/CardDetails";
 import { useState } from "react";
 
 function App() {
-  const [isTrue, setIsTrue] = useState(null);
+  const [isTrue, setIsTrue] = useState(false);
 
   return (
     <>

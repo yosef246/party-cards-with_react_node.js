@@ -10,9 +10,11 @@ export default function CardItem({
   imageUrl,
 }) {
   return (
-    <Link to={`/card-details/${id}`}>
+    <>
       <div className={styles.card}>
-        <img src={imageUrl} alt={title} className={styles.image} />
+        <Link to={`/card-details/${id}`}>
+          <img src={imageUrl} alt={title} className={styles.image} />
+        </Link>
         <div className={styles.content}>
           <h2>{title}</h2>
           <p>
@@ -26,6 +28,6 @@ export default function CardItem({
           </p>
         </div>
       </div>
-    </Link>
+    </>
   );
 }

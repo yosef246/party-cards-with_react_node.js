@@ -21,18 +21,20 @@ function Header({ antherBotton }) {
               צרו קשר
             </Link>
           </li>
-          <li>
-            <Link className={styles.navLink} to="/register">
-              הרשמה
-            </Link>
-          </li>
+
           {antherBotton ? (
             <li>
               <Link className={styles.navLink} to="/party-cards">
-                עריכת כרטיס
+                עריכה
               </Link>
             </li>
-          ) : null}
+          ) : (
+            <li>
+              <Link className={styles.navLink} to="/register">
+                הרשמה
+              </Link>
+            </li>
+          )}
           <li>
             <Link className={styles.signup} to="/login">
               התחברות

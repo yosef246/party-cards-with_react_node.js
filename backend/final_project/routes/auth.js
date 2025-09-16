@@ -1,5 +1,5 @@
 import { Router } from "express";
-import bcrypt from "bcrypt";
+import bcrypt from "bcryptjs";
 import jwt from "jsonwebtoken";
 import purify from "../../utils/sanitize.js";
 import { loginValitation, registerValitation } from "../../valitations/user.js";

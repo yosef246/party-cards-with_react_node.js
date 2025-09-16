@@ -6,6 +6,7 @@ import newUserRouter from "./routes/auth.js";
 import postRouter from "./routes/post.js";
 import tagRouter from "./routes/tag.js";
 import connectToMongoDB from "../utils/conectDB.js";
+
 const app = express();
 const port = 3003;
 
