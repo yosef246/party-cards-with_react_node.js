@@ -2,7 +2,6 @@ import styles from "./createPartyCard.module.css";
 import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import { Link } from "react-router-dom";
-// import LocationPicker from "../components/map";
 
 export default function CreatePartyCardPage({ handleHeader }) {
   const [title, setTitle] = useState("");
