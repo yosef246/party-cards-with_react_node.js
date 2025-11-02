@@ -47,6 +47,10 @@ export default function PaymentPage() {
         const data = await res.json();
         console.log("data:", data.user);
 
+        if (data.user.hasPaid) {
+          setHaspaid(true);
+        }
+
         console.log("המשתמש מחובר:", data);
       } catch (err) {
         console.log("עליך להתחבר כדי לגשת לדף");
