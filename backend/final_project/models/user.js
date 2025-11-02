@@ -18,7 +18,11 @@ const userSchema = new mongoose.Schema({
   },
   isAdmin: {
     type: Boolean,
-    default: true,
+    default: false,
+  },
+  hasPaid: {
+    type: Boolean,
+    default: false,
   },
   password: {
     type: String,
@@ -28,6 +32,6 @@ const userSchema = new mongoose.Schema({
   },
 });
 
-const User = mongoose.model("User", userSchema, "users");
+const User = mongoose.model("User", userSchema);
 
 export default User;

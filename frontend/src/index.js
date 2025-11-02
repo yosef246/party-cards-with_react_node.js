@@ -7,6 +7,7 @@ import "leaflet/dist/leaflet.css";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
+  // בודקת באגים בזמן פיתוח StrictMode
   <React.StrictMode>
     <BrowserRouter>
       {/* מאפשר לי לנווט בין דפים */}

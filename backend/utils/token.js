@@ -1,12 +1,13 @@
 import jwt from "jsonwebtoken";
 
-export const generateToken = ({ id, email, isAdmin }) => {
+export const generateToken = ({ id, email, isAdmin, hasPaid }) => {
   //יוצר לי טוקאן חדש
   return jwt.sign(
     {
       id,
       email,
       isAdmin,
+      hasPaid,
     },
     process.env.JWT_SECRET,
     { expiresIn: "3d" } //אומר לי לכמה זמן הטוקאן תקף במקרה הזה ל3 ימים

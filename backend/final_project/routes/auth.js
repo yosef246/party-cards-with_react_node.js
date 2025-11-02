@@ -5,6 +5,7 @@ import purify from "../../utils/sanitize.js";
 import { loginValitation, registerValitation } from "../../valitations/user.js";
 import NewUser from "../models/user.js";
 import { generateToken } from "../../utils/token.js";
+import { verifyToken } from "../../utils/token.js";
 
 const router = Router();
 
@@ -15,7 +16,7 @@ router.post("/register", async (req, res) => {
   });
 
   const { error } = registerValitation.validate(req.body);
-  if (error) return res.status(400).send(error.details[0].message);
+  if (error) return res.status(400).send({ message: error.details[0].message });
 
   //בודק האם האימייל קיים כבר במערכת
   const checkEmail = await NewUser.findOne({ email: req.body.email });
@@ -36,14 +37,19 @@ router.post("/register", async (req, res) => {
       id: newUser._id,
       email: newUser.email,
       isAdmin: newUser.isAdmin,
+      hasPaid: newUser.hasPaid,
     };
     const token = generateToken(tokenProps);
     //יצירת טוקאן
 
     res
-      .cookie("access_token", token, { httpOnly: true, secure: true }) //יצירת קוקיז לטוקאן
+      .cookie("access_token", token, {
+        httpOnly: true,
+        secure: true,
+        sameSite: "strict",
+      }) //יצירת קוקיז לטוקאן
       .status(201)
-      .send(newUser);
+      .send({ message: "register seccessfuly !", newUser: newUser });
   } catch (error) {
     console.log(error);
     res
@@ -86,7 +92,7 @@ router.post("/login", async (req, res) => {
   });
 
   const { error } = loginValitation.validate(req.body);
-  if (error) return res.status(400).send(error.details[0].message);
+  if (error) return res.status(400).send({ message: error.details[0].message });
 
   try {
     const user = await NewUser.findOne({ email: req.body.email });
@@ -106,12 +112,17 @@ router.post("/login", async (req, res) => {
       id: user._id,
       email: user.email,
       isAdmin: user.isAdmin,
+      hasPaid: user.hasPaid,
     };
     const token = generateToken(tokenProps);
     //יצירת טוקאן
 
     res
-      .cookie("access_token", token, { httpOnly: true, secure: true }) //יצירת קוקיז לטוקאן
+      .cookie("access_token", token, {
+        httpOnly: true,
+        secure: true,
+        sameSite: "strict",
+      }) //יצירת קוקיז לטוקאן
       .status(200)
       .send({ message: "login seccessfuly !", user: user });
   } catch (error) {
@@ -120,15 +131,16 @@ router.post("/login", async (req, res) => {
   }
 });
 
-router.get("/check-auth", (req, res) => {
-  const token = req.cookies.access_token;
-
-  if (!token) return res.status(401).json({ message: "אין לך הרשאת גישה" });
-
+router.get("/check-auth", [verifyToken], async (req, res) => {
   try {
-    const decoded = jwt.verify(token, process.env.JWT_SECRET);
-    res.json({ user: decoded });
-    console.log(decoded, "you have a token now");
+    const user = await NewUser.findById(req.user.id).select("-password"); // בלי הסיסמה
+
+    if (!user) {
+      return res.status(404).json({ message: "משתמש לא קיים" });
+    }
+
+    res.json({ user: user });
+    console.log(user, "you have a token now");
   } catch (err) {
     return res.status(403).json({ message: "אין לך משתמש" });
   }

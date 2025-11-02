@@ -9,6 +9,7 @@ import CreatePartyCard from "./pages/createPartyCard";
 import AllCards from "./pages/allCards";
 import MyCards from "./pages/myCards";
 import CardDetails from "./pages/CardDetails";
+import PaymentPage from "./pages/PaymentPage";
 import { useState } from "react";
 
 function App() {
@@ -30,6 +31,7 @@ function App() {
         <Route path="/all-cards" element={<AllCards />} />
         <Route path="/my-cards" element={<MyCards />} />
         <Route path="/card-details/:id" element={<CardDetails />} />
+        <Route path="/payment" element={<PaymentPage />} />
       </Routes>
     </>
   );

@@ -2,6 +2,7 @@ import { useState } from "react";
 import styles from "./register.module.css";
 import { useNavigate } from "react-router-dom";
 import { Link } from "react-router-dom";
+import sendWelcomeEmail from "../components/emailjsRegister";
 
 export default function RegisterPage() {
   const [name, setName] = useState("");
@@ -41,6 +42,7 @@ export default function RegisterPage() {
       setEmail("");
       setPassword("");
       navigate("/party-cards");
+      sendWelcomeEmail(name, email); // שליחת מייל לאחר הירשמות
     } catch (error) {
       console.error("Error during registration:", error);
       alert(error.message);

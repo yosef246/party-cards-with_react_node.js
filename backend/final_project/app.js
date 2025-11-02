@@ -5,6 +5,7 @@ import dotenv from "dotenv";
 import newUserRouter from "./routes/auth.js";
 import postRouter from "./routes/post.js";
 import tagRouter from "./routes/tag.js";
+import paymentRouter from "./routes/payment.js";
 import connectToMongoDB from "../utils/conectDB.js";
 
 const app = express();
@@ -33,6 +34,7 @@ connectToMongoDB();
 app.use("/api/auth/", newUserRouter);
 app.use("/api/post/", postRouter);
 app.use("/api/tag/", tagRouter);
+app.use("/api/payment/", paymentRouter);
 
 app.listen(port, () => {
   console.log(`Example run on port ${port}!`);

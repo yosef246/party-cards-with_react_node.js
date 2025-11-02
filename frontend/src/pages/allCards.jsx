@@ -4,6 +4,7 @@ import { useNavigate } from "react-router-dom";
 import CardItem from "../components/cardItem";
 
 export default function AllCards() {
+  const [isCheckingAuth, setIsCheckingAuth] = useState(true); //  מצב בדיקה
   const [loading, setLoading] = useState(false);
   const [cards, setCards] = useState([]);
   const navigate = useNavigate();
@@ -21,10 +22,19 @@ export default function AllCards() {
         }
 
         const data = await res.json();
+
+        if (!data.user.hasPaid) {
+          alert("אין לך הרשאות , עליך לשלם בכדי להמשיך לדף הבא");
+          navigate("/party-cards");
+          return;
+        }
+
         console.log("המשתמש מחובר:", data);
       } catch (err) {
         console.log("עליך להתחבר כדי לגשת לדף");
         navigate("/login");
+      } finally {
+        setIsCheckingAuth(false); // הבדיקה הסתיימה
       }
     };
 
@@ -33,6 +43,8 @@ export default function AllCards() {
 
   //ייבוא כל הכרטיסים שקיימים במערכת
   useEffect(() => {
+    if (isCheckingAuth) return; // אם הבדיקה עדיין רצה כלומר טרו אל תפעיל את הפונקציה הנ"ל
+
     async function fetchData() {
       setLoading(true);
       try {
@@ -42,20 +54,23 @@ export default function AllCards() {
 
         if (!response.ok) {
           throw new Error(data.message || "upload failed");
-        } else {
-          console.log("כל הכרטיסים", data);
-          setCards(data);
         }
+
+        // console.log("כל הכרטיסים", data);
+        setCards(data);
       } catch (err) {
         console.log("ייבוא הכרטיסים נכשל", err);
       }
       setLoading(false);
     }
     fetchData();
-  }, []);
+  }, [isCheckingAuth]);
 
   if (loading) {
-    return <p className={styles.loading}>Loading . . .</p>;
+    return <p className={styles.loading}>. . . טוען</p>;
+  }
+  if (isCheckingAuth) {
+    return <p className={styles.loading}>. . . בודק הרשאות</p>;
   }
 
   return cards.length > 0 ? (

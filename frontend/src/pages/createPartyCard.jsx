@@ -111,8 +111,8 @@ export default function CreatePartyCardPage({ handleHeader }) {
             </Link>
           </button>
           <button>
-            <Link className={styles.signup} to="/login">
-              התחברות עכשיו
+            <Link className={styles.signup} to="/payment">
+              שלם עכשיו
             </Link>
           </button>
         </div>
