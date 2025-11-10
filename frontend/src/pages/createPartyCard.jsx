@@ -34,7 +34,7 @@ export default function CreatePartyCardPage({ handleHeader }) {
     };
 
     checkAuth();
-  }, []);
+  }, [navigate]);
 
   async function handleSubmit(e) {
     e.preventDefault(); //נועד למנוע את הרענון של הדף כאשר טופס נשלח אוטומטית
@@ -136,10 +136,6 @@ export default function CreatePartyCardPage({ handleHeader }) {
             onChange={(e) => setTitle(e.target.value)}
             required
           />
-
-          {/* <LocationPicker
-            onLocationSelect={(location) => setLocation(location)}
-          /> */}
 
           <input
             type="text"

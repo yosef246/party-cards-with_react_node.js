@@ -59,7 +59,7 @@ export default function PaymentPage() {
     };
 
     checkAuth();
-  }, []);
+  }, [navigate]);
 
   const handlePayment = async () => {
     setLoading(true);

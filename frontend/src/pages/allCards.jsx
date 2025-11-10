@@ -39,7 +39,7 @@ export default function AllCards() {
     };
 
     checkAuth();
-  }, []);
+  }, [navigate]);
 
   //ייבוא כל הכרטיסים שקיימים במערכת
   useEffect(() => {

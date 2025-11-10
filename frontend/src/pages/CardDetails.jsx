@@ -28,7 +28,7 @@ export default function CardDetails() {
     };
 
     checkAuth();
-  }, []);
+  }, [navigate]);
 
   //ייבוא פוסט אחד לפי האיידי שלו
   useEffect(() => {

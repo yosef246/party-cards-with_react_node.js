@@ -29,7 +29,7 @@ export default function MyCards() {
     };
 
     checkAuth();
-  }, []);
+  }, [navigate]);
 
   //ייבוא כל הכרטיסים של המשתמש בלבד
   useEffect(() => {
