@@ -12,9 +12,12 @@ export default function MyCards() {
   useEffect(() => {
     const checkAuth = async () => {
       try {
-        const res = await fetch("http://localhost:3003/api/auth/check-auth", {
-          credentials: "include",
-        });
+        const res = await fetch(
+          "https://backendfortherailway.up.railway.app/api/auth/check-auth",
+          {
+            credentials: "include",
+          }
+        );
 
         if (!res.ok) {
           throw new Error("Unauthorized");
@@ -37,7 +40,7 @@ export default function MyCards() {
       setLoading(true);
       try {
         const response = await fetch(
-          "http://localhost:3003/api/post/my-cards",
+          "https://backendfortherailway.up.railway.app/api/post/my-cards",
           {
             credentials: "include", // כדי לשלוח את הקוקי עם הטוקן
           }
