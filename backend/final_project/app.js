@@ -19,7 +19,15 @@ const allowedOrigins = [
 //מונע בעיית כורס
 app.use(
   cors({
-    origin: allowedOrigins,
+    origin: function (origin, callback) {
+      if (!origin) return callback(null, true); // מאפשר Postman / curl
+      if (allowedOrigins.indexOf(origin) === -1) {
+        const msg =
+          "The CORS policy for this site does not allow access from the specified Origin.";
+        return callback(new Error(msg), false);
+      }
+      return callback(null, true);
+    },
     credentials: true,
   })
 );
