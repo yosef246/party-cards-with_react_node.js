@@ -34,7 +34,7 @@ export default function CreatePartyCardPage({ handleHeader }) {
     };
 
     checkAuth();
-  }, [navigate]);
+  }, [navigate, handleHeader]);
 
   async function handleSubmit(e) {
     e.preventDefault(); //נועד למנוע את הרענון של הדף כאשר טופס נשלח אוטומטית

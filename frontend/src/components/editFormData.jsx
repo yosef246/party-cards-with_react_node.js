@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import styles from "./editFormData.module.css";
 
 export default function EditPostForm({ id, post, onUpdate, onCancel }) {
