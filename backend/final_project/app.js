@@ -11,10 +11,15 @@ import connectToMongoDB from "../utils/conectDB.js";
 const app = express();
 const port = 3003;
 
+const allowedOrigins = [
+  "http://localhost:3000", // לוקאלי
+  "https://party-cards-with-react-node-js.vercel.app", // פרודקשן
+];
+
 //מונע בעיית כורס
 app.use(
   cors({
-    origin: "http://localhost:3000",
+    origin: allowedOrigins,
     credentials: true,
   })
 );

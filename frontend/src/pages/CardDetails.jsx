@@ -34,9 +34,12 @@ export default function CardDetails() {
   useEffect(() => {
     async function fetchCard() {
       try {
-        const response = await fetch(`http://localhost:3003/api/post/${id}`, {
-          credentials: "include",
-        });
+        const response = await fetch(
+          `https://party-cards-with-react-node-js.vercel.app/api/post/${id}`,
+          {
+            credentials: "include",
+          }
+        );
 
         const data = await response.json();
 
