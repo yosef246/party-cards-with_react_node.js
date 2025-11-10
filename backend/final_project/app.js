@@ -14,13 +14,19 @@ const port = process.env.PORT || 3003;
 const allowedOrigins = [
   "http://localhost:3000", // לוקאלי
   "https://party-cards-with-react-node-js.vercel.app", // פרודקשן
-  "https://backendfortherailway-production.up.railway.app", // Railway
 ];
 
 //מונע בעיית כורס
 app.use(
   cors({
-    origin: allowedOrigins,
+    origin: function (origin, callback) {
+      if (!origin) return callback(null, true); // מאפשר Postman / curl
+      if (allowedOrigins.indexOf(origin) === -1) {
+        return callback(new Error("CORS policy not allowed"), false);
+      }
+      return callback(null, true);
+    },
+
     credentials: true,
   })
 );

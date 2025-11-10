@@ -20,4 +20,5 @@ WORKDIR /app/final_project
 EXPOSE 3003
 
 # הפעלה עם nodemon
-CMD ["npx", "nodemon", "app.js"]
+# CMD ["npx", "nodemon", "app.js"]
+CMD ["node", "app.js"]
