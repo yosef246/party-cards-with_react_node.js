@@ -17,7 +17,7 @@ export default function CreatePartyCardPage({ handleHeader }) {
     const checkAuth = async () => {
       try {
         const res = await fetch(
-          "https://backendfortherailway.up.railway.app/api/auth/check-auth",
+          "https://backendfortherailway-production.up.railway.app/api/auth/check-auth",
           {
             credentials: "include",
           }
@@ -44,7 +44,7 @@ export default function CreatePartyCardPage({ handleHeader }) {
     setLoading(true);
     try {
       const response = await fetch(
-        "https://backendfortherailway.up.railway.app/api/post/",
+        "https://backendfortherailway-production.up.railway.app/api/post/",
         {
           method: "POST",
           headers: {
@@ -80,7 +80,7 @@ export default function CreatePartyCardPage({ handleHeader }) {
     setLoading(true);
     try {
       const response = await fetch(
-        "https://backendfortherailway.up.railway.app/api/auth/logout",
+        "https://backendfortherailway-production.up.railway.app/api/auth/logout",
         {
           method: "POST",
           credentials: "include",

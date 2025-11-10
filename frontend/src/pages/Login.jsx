@@ -16,7 +16,7 @@ export default function LoginPage() {
 
     try {
       const response = await fetch(
-        "https://backendfortherailway.up.railway.app/api/auth/login",
+        "https://backendfortherailway-production.up.railway.app/api/auth/login",
         {
           method: "POST",
           headers: {
