@@ -14,7 +14,7 @@ const port = process.env.PORT || 8080;
 
 const allowedOrigins = [
   "http://localhost:3000", // לוקאלי
-  "https://party-cards-with-react-node-a6kxss4ga-yosef246s-projects.vercel.app", // פרודקשן
+  "https://party-cards-with-react-node-js.vercel.app", // פרודקשן
 ];
 //מונע בעיית כורס
 app.use(
@@ -37,6 +37,20 @@ app.use(
   })
 );
 
+app.options(
+  "*",
+  cors({
+    origin: function (origin, callback) {
+      if (!origin) return callback(null, true);
+      if (origin.includes("vercel.app")) return callback(null, true);
+      return callback(new Error("CORS blocked"), false);
+    },
+    methods: ["GET", "POST", "PUT", "PATCH", "DELETE", "OPTIONS"],
+    allowedHeaders: ["Content-Type", "Authorization"],
+    credentials: true,
+  })
+);
+
 //env מאפשר לי להשתמש בערכים שנמצאים בקובץ
 dotenv.config();
 
@@ -53,6 +67,8 @@ app.use("/api/auth/", newUserRouter);
 app.use("/api/post/", postRouter);
 app.use("/api/tag/", tagRouter);
 app.use("/api/payment/", paymentRouter);
+
+app.get("/test", (req, res) => res.json({ status: "Server works ✅" }));
 
 app.listen(port, "0.0.0.0", () => {
   console.log(`Example run on port ${port}!`);
