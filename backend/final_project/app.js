@@ -9,7 +9,8 @@ import paymentRouter from "./routes/payment.js";
 import connectToMongoDB from "../utils/conectDB.js";
 
 const app = express();
-const port = process.env.PORT || 3003;
+// const port = 3003;
+const port = process.env.PORT;
 
 const allowedOrigins = [
   "http://localhost:3000", // לוקאלי
