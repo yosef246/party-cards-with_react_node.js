@@ -10,7 +10,7 @@ import connectToMongoDB from "../utils/conectDB.js";
 
 const app = express();
 // const port = 3003;
-const port = process.env.PORT;
+const port = process.env.PORT || 8080;
 
 const allowedOrigins = [
   "http://localhost:3000", // לוקאלי
