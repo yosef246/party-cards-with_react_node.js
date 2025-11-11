@@ -14,9 +14,8 @@ const port = process.env.PORT || 8080;
 
 const allowedOrigins = [
   "http://localhost:3000", // לוקאלי
-  "https://party-cards-with-react-node-js.vercel.app", // פרודקשן
+  "https://party-cards-with-react-node-a6kxss4ga-yosef246s-projects.vercel.app", // פרודקשן
 ];
-
 //מונע בעיית כורס
 app.use(
   cors({
