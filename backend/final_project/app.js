@@ -19,37 +19,37 @@ const allowedOrigins = [
 //מונע בעיית כורס
 app.use(
   cors({
-    origin: function (origin, callback) {
-      if (!origin) return callback(null, true); // מאפשר Postman / curl
+    origin: (origin, callback) => {
+      if (!origin) return callback(null, true);
 
-      // ✅ מאפשר כל דומיין שמגיע מ-Vercel
-      if (origin.includes("vercel.app")) {
+      // כל דומיין של Vercel
+      if (origin.endsWith(".vercel.app")) {
         return callback(null, true);
       }
 
-      if (allowedOrigins.indexOf(origin) === -1) {
-        return callback(new Error("CORS policy not allowed"), false);
+      if (allowedOrigins.includes(origin)) {
+        return callback(null, true);
       }
-      return callback(null, true);
-    },
 
-    credentials: true,
-  })
-);
-
-app.options(
-  "*",
-  cors({
-    origin: function (origin, callback) {
-      if (!origin) return callback(null, true);
-      if (origin.includes("vercel.app")) return callback(null, true);
       return callback(new Error("CORS blocked"), false);
     },
+    credentials: true,
     methods: ["GET", "POST", "PUT", "PATCH", "DELETE", "OPTIONS"],
     allowedHeaders: ["Content-Type", "Authorization"],
-    credentials: true,
   })
 );
+
+// ✅ חובה! מענה ל־OPTIONS לפני כל Route
+app.options("*", (req, res) => {
+  res.header("Access-Control-Allow-Origin", req.headers.origin || "*");
+  res.header("Access-Control-Allow-Credentials", "true");
+  res.header(
+    "Access-Control-Allow-Methods",
+    "GET,HEAD,PUT,PATCH,POST,DELETE,OPTIONS"
+  );
+  res.header("Access-Control-Allow-Headers", "Content-Type, Authorization");
+  return res.sendStatus(204);
+});
 
 //env מאפשר לי להשתמש בערכים שנמצאים בקובץ
 dotenv.config();
