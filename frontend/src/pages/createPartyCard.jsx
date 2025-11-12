@@ -24,7 +24,7 @@ export default function CreatePartyCardPage({ handleHeader }) {
         );
 
         if (!res.ok) {
-          throw new Error("Unauthorized");
+          navigate("/login");
         }
 
         const data = await res.json();
