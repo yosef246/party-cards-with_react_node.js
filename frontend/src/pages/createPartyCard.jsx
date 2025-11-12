@@ -86,6 +86,7 @@ export default function CreatePartyCardPage({ handleHeader }) {
           credentials: "include",
         }
       );
+      window.location.href = "/login"; // מכריח אותו לעשות רענון אמיתי אחרי ההתנתקות
 
       const data = await response.json();
 

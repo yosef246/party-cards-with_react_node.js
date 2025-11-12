@@ -47,6 +47,7 @@ router.post("/register", async (req, res) => {
         httpOnly: true,
         secure: true,
         sameSite: "none",
+        path: "/",
       }) //יצירת קוקיז לטוקאן
       .status(201)
       .send({ message: "register seccessfuly !", newUser: newUser });
@@ -122,6 +123,7 @@ router.post("/login", async (req, res) => {
         httpOnly: true,
         secure: true,
         sameSite: "none",
+        path: "/",
       }) //יצירת קוקיז לטוקאן
       .status(200)
       .send({ message: "login seccessfuly !", user: user });
@@ -151,7 +153,8 @@ router.post("/logout", async (req, res) => {
     res.clearCookie("access_token", {
       httpOnly: true,
       secure: true,
-      sameSite: "strict",
+      sameSite: "none",
+      path: "/",
     });
     res.status(200).send({ message: "התנתקת בהצלחה" });
   } catch (error) {
