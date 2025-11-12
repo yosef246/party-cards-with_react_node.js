@@ -26,7 +26,7 @@ function App() {
         <Route path="/register" element={<Register />} />
         <Route
           path="/party-cards"
-          element={<CreatePartyCard handleHeader={() => setIsTrue(!isTrue)} />}
+          element={<CreatePartyCard handleHeader={setIsTrue} />}
         />
         <Route path="/all-cards" element={<AllCards />} />
         <Route path="/my-cards" element={<MyCards />} />
