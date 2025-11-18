@@ -63,7 +63,7 @@
 }
 
 .payBtn {
-  background: linear-gradient(90deg,  #00aaff, #0044ff);
+  background: linear-gradient(90deg, #00aaff, #0044ff);
   border: none;
   padding: 12px 24px;
   border-radius: 12px;
@@ -90,4 +90,95 @@
   color: #4ade80; /* ירוק בהיר */
   margin-top: 1.2rem;
   font-size: 1rem;
+}
+
+/* ============================= */
+/*          טאבלטים              */
+/* ============================= */
+@media (max-width: 1398px) {
+  .paymentContainer {
+    padding: 1.5rem;
+  }
+
+  .paymentBox {
+    max-width: 500px;
+    padding: 30px;
+  }
+
+  .paymentBox h1 {
+    font-size: 1.8rem;
+  }
+
+  .paymentBox p {
+    font-size: 1rem;
+  }
+
+  .inputField {
+    padding: 10px;
+    font-size: 0.95rem;
+  }
+
+  .row {
+    flex-direction: row;
+    gap: 8px;
+  }
+
+  .halfInput {
+    width: 48%;
+  }
+
+  .payBtn {
+    font-size: 0.95rem;
+    padding: 10px 20px;
+  }
+}
+
+/* ============================= */
+/*           טלפונים             */
+/* ============================= */
+@media (max-width: 495px) {
+  .paymentContainer {
+    flex-direction: column;
+    padding: 1rem;
+  }
+
+  .paymentBox {
+    width: 70%;
+    max-width: 90%;
+    padding: 25px;
+  }
+
+  .paymentBox h1 {
+    font-size: 1.6rem;
+  }
+
+  .paymentBox p {
+    font-size: 0.95rem;
+  }
+
+  .row {
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .halfInput {
+    width: 90%;
+  }
+
+  .inputField {
+     width: 90%;
+    padding: 10px;
+    font-size: 0.9rem;
+  }
+
+  .payBtn {
+    width: 60%;
+    margin-left: 0;
+    padding: 12px;
+    font-size: 1rem;
+  }
+
+  .successMsg {
+    font-size: 0.9rem;
+  }
 }

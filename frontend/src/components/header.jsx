@@ -1,16 +1,21 @@
 import { Link } from "react-router-dom";
+import { useState } from "react";
 import styles from "./header.module.css";
 
-function Header({ antherBotton }) {
+function Header({ handleHeader }) {
+  const [isOpen, setIsOpen] = useState(false);
+
   return (
     <header className={styles.header}>
-      <nav>
+      <Link className={styles.icon} to="/">
+        PARTY TIKETS
+      </Link>
+      <div className={styles.hamburger} onClick={() => setIsOpen(!isOpen)}>
+        ☰
+      </div>
+
+      <nav className={styles.desktopNav}>
         <ul className={styles.navList}>
-          <li>
-            <Link className={styles.icon} to="/">
-              PARTY TIKETS
-            </Link>
-          </li>
           <li>
             <Link className={styles.navLink} to="/about">
               עלינו
@@ -22,7 +27,7 @@ function Header({ antherBotton }) {
             </Link>
           </li>
 
-          {antherBotton ? (
+          {handleHeader ? (
             <li>
               <Link className={styles.navLink} to="/party-cards">
                 עריכה
@@ -35,6 +40,7 @@ function Header({ antherBotton }) {
               </Link>
             </li>
           )}
+
           <li>
             <Link className={styles.signup} to="/login">
               התחברות
@@ -42,6 +48,33 @@ function Header({ antherBotton }) {
           </li>
         </ul>
       </nav>
+
+      {/* תפריט מובייל בבועה */}
+      <div className={`${styles.mobileMenu} ${isOpen ? styles.open : ""}`}>
+        <Link to="/" onClick={() => setIsOpen(false)}>
+          בית
+        </Link>
+        <Link to="/about" onClick={() => setIsOpen(false)}>
+          עלינו
+        </Link>
+        <Link to="/contact" onClick={() => setIsOpen(false)}>
+          צרו קשר
+        </Link>
+
+        {handleHeader ? (
+          <Link to="/party-cards" onClick={() => setIsOpen(false)}>
+            עריכה
+          </Link>
+        ) : (
+          <Link to="/register" onClick={() => setIsOpen(false)}>
+            הרשמה
+          </Link>
+        )}
+
+        <Link to="/login" onClick={() => setIsOpen(false)}>
+          התחברות
+        </Link>
+      </div>
     </header>
   );
 }

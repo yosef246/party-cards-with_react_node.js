@@ -10,6 +10,7 @@ export default function CreatePartyCardPage({ handleHeader }) {
   const [body, setBody] = useState("");
   const [imageUrl, setImageUrl] = useState("");
   const [loading, setLoading] = useState(false);
+  const [open, setOpen] = useState(false);
 
   const navigate = useNavigate();
 
@@ -24,7 +25,7 @@ export default function CreatePartyCardPage({ handleHeader }) {
         );
 
         if (!res.ok) {
-          navigate("/login");
+          throw new Error("Unauthorized");
         }
 
         const data = await res.json();
@@ -107,7 +108,7 @@ export default function CreatePartyCardPage({ handleHeader }) {
   return (
     <div className={styles.middle}>
       <div className={styles.menucontainer}>
-        <div className={styles.submenu}>
+        <div className={`${styles.submenu} ${open ? styles.open : ""}`}>
           <button>
             <Link className={styles.signup} to="/all-cards">
               כל הכרטיסים
@@ -124,7 +125,9 @@ export default function CreatePartyCardPage({ handleHeader }) {
             </Link>
           </button>
         </div>
-        <button className={styles.mainbutton}>M</button>
+        <button className={styles.mainbutton} onClick={() => setOpen(!open)}>
+          M
+        </button>
       </div>
 
       <h1>ברוכים הבאים למועדון היחצנים</h1>
