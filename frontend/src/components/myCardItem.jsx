@@ -11,7 +11,7 @@ export default function MyCardItem(props) {
   async function handleDelete() {
     try {
       const response = await fetch(
-        `https://backendfortherailway-production.up.railway.app/api/post/${id}`,
+        `https://backend-for-the-railway.vercel.app/api/post/${id}`,
         {
           method: "DELETE",
           credentials: "include",

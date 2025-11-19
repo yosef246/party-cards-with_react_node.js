@@ -16,7 +16,7 @@ export default function LoginPage() {
 
     try {
       const response = await fetch(
-        "https://backendfortherailway-production.up.railway.app/api/auth/login",
+        "https://backend-for-the-railway.vercel.app/api/auth/login",
         {
           method: "POST",
           headers: {

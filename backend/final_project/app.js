@@ -10,7 +10,7 @@ import connectToMongoDB from "../utils/conectDB.js";
 
 const app = express();
 // const port = 3003;
-const port = process.env.PORT || 8080;
+const port = process.env.PORT || 3000;
 
 const allowedOrigins = [
   "http://localhost:3000", // לוקאלי
@@ -70,6 +70,8 @@ app.use("/api/payment/", paymentRouter);
 
 app.get("/test", (req, res) => res.json({ status: "Server works ✅" }));
 
-app.listen(port, "0.0.0.0", () => {
-  console.log(`Example run on port ${port}!`);
-});
+// app.listen(port, "0.0.0.0", () => {
+//   console.log(`Example run on port ${port}!`);
+// });
+
+export default app;

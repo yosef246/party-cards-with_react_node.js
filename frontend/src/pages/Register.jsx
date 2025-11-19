@@ -18,7 +18,7 @@ export default function RegisterPage() {
 
     try {
       const response = await fetch(
-        "https://backendfortherailway-production.up.railway.app/api/auth/register",
+        "https://backend-for-the-railway.vercel.app/api/auth/register",
         {
           method: "POST",
           headers: {
