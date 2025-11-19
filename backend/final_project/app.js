@@ -19,21 +19,6 @@ app.use(
   })
 );
 
-// Middleware ל-preflight
-app.options("*", (req, res) => {
-  res.header(
-    "Access-Control-Allow-Origin",
-    "https://party-cards-with-react-node-js.vercel.app"
-  );
-  res.header("Access-Control-Allow-Credentials", "true");
-  res.header(
-    "Access-Control-Allow-Methods",
-    "GET,HEAD,PUT,PATCH,POST,DELETE,OPTIONS"
-  );
-  res.header("Access-Control-Allow-Headers", "Content-Type, Authorization");
-  res.sendStatus(204);
-});
-
 //env מאפשר לי להשתמש בערכים שנמצאים בקובץ
 dotenv.config();
 
