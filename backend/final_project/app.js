@@ -12,44 +12,12 @@ const app = express();
 // const port = 3003;
 const port = process.env.PORT || 3000;
 
-const allowedOrigins = [
-  "http://localhost:3000", // לוקאלי
-  "https://party-cards-with-react-node-js.vercel.app", // פרודקשן
-];
-//מונע בעיית כורס
 app.use(
   cors({
-    origin: (origin, callback) => {
-      if (!origin) return callback(null, true);
-
-      // כל דומיין של Vercel
-      if (origin.endsWith(".vercel.app")) {
-        return callback(null, true);
-      }
-
-      if (allowedOrigins.includes(origin)) {
-        return callback(null, true);
-      }
-
-      return callback(new Error("CORS blocked"), false);
-    },
+    origin: "https://party-cards-with-react-node-js.vercel.app",
     credentials: true,
-    methods: ["GET", "POST", "PUT", "PATCH", "DELETE", "OPTIONS"],
-    allowedHeaders: ["Content-Type", "Authorization"],
   })
 );
-
-// ✅ חובה! מענה ל־OPTIONS לפני כל Route
-app.options("*", (req, res) => {
-  res.header("Access-Control-Allow-Origin", req.headers.origin || "*");
-  res.header("Access-Control-Allow-Credentials", "true");
-  res.header(
-    "Access-Control-Allow-Methods",
-    "GET,HEAD,PUT,PATCH,POST,DELETE,OPTIONS"
-  );
-  res.header("Access-Control-Allow-Headers", "Content-Type, Authorization");
-  return res.sendStatus(204);
-});
 
 //env מאפשר לי להשתמש בערכים שנמצאים בקובץ
 dotenv.config();
