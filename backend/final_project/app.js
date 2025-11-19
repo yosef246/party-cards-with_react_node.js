@@ -36,8 +36,6 @@ app.use("/api/post/", postRouter);
 app.use("/api/tag/", tagRouter);
 app.use("/api/payment/", paymentRouter);
 
-app.get("/test", (req, res) => res.json({ status: "Server works ✅" }));
-
 // app.listen(port, "0.0.0.0", () => {
 //   console.log(`Example run on port ${port}!`);
 // });
