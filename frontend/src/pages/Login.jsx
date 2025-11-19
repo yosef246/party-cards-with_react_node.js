@@ -37,7 +37,7 @@ export default function LoginPage() {
       }
 
       console.log("Login successful:", data);
-      alert("נכנסת בהצלחה!");
+      // alert("נכנסת בהצלחה!");
       setEmail("");
       setPassword("");
       navigate("/party-cards");
