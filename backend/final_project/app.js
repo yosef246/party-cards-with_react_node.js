@@ -10,7 +10,7 @@ import connectToMongoDB from "../utils/conectDB.js";
 
 const app = express();
 // const port = 3003;
-const port = process.env.PORT || 3000;
+// const port = process.env.PORT || 3000;
 
 app.use(
   cors({
@@ -35,8 +35,6 @@ app.use("/api/auth/", newUserRouter);
 app.use("/api/post/", postRouter);
 app.use("/api/tag/", tagRouter);
 app.use("/api/payment/", paymentRouter);
-
-app.get("/test", (req, res) => res.json({ status: "Server works ✅" }));
 
 // app.listen(port, "0.0.0.0", () => {
 //   console.log(`Example run on port ${port}!`);
