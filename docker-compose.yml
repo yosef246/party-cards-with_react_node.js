@@ -1,0 +1,29 @@
+# הקובץ הזה מגדיר לי כמה קונטיינרים יש לי וקובע איך הם מתחברים אחד לשני
+version: "3.8"
+
+services:
+  frontend:
+    build:
+      context: ./frontend
+      dockerfile: Dockerfile
+    ports:
+      - "3000:3000"
+    volumes:
+      - ./frontend:/app
+    depends_on:
+      - backend
+
+  backend:
+    build:
+      context: ./backend
+      dockerfile: Dockerfile
+    ports:
+      - "3003:3003"
+    volumes:
+      - ./backend:/app
+    env_file:
+      - ./backend/final_project/.env
+    restart: unless-stopped
+    
+
+  

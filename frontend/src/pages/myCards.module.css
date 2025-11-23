@@ -1,0 +1,62 @@
+.middle {
+  background: linear-gradient(to top, #030304, #222226);
+  min-height: 100vh;
+  position: relative;
+  text-align: center;
+  padding-top: 2rem;
+}
+
+.loading {
+  font-size: 1.2rem;
+  color: #0c0101;
+  text-align: center; 
+  margin: 20px 0;
+}
+
+.cardsContainer {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(400px, 1fr));
+  gap: 10px;
+  padding: 20px;
+  direction: rtl;
+  text-align: right;
+}
+
+/* ============================= */
+/*           טאבלטים             */
+/* ============================= */
+@media (max-width: 1398px) {
+  .cardsContainer {
+    grid-template-columns: repeat(2, 1fr); /* שני כרטיסים בשורה */
+    gap: 10px;
+    display: grid;
+  }
+
+  .loading {
+    font-size: 1.1rem;
+  }
+
+  .middle {
+    padding-top: 1.5rem;
+  }
+}
+
+/* ============================= */
+/*           טלפונים             */
+/* ============================= */
+@media (max-width: 495px) {
+  .cardsContainer {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr); /* שני כרטיסים בשורה */
+    gap: 10px;  /* רווח בין הכרטיסים */
+    padding: 10px;
+  }
+
+  .middle {
+    padding-top: 1rem;
+  }
+
+  .loading {
+    font-size: 1rem;
+  }
+}

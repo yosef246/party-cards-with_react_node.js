@@ -1,0 +1,79 @@
+.form input, textarea {
+  width: 93%;
+  padding: 0.8rem;
+  margin-bottom: 1rem;
+  border: 1px solid #d0c8c8;
+  border-radius: 1rem;
+  font-size: 1rem;
+}
+
+.form h3 {
+  color: #d0c8c8;
+}
+
+.form button {
+  width: 22%;
+  margin-top: 1rem;
+  margin: 5px;
+  padding: 0.6rem 1rem;
+  background-color: #1976d2;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  text-decoration: none;
+  display: inline-block;
+  transition: background 0.3s;
+}
+
+.form button:hover {
+  background-color: #0b5096;
+}
+
+.loading {
+  font-size: 1.2rem;
+  color: #e9e4e4;
+  text-align: center;
+  margin: 20px 0;
+}
+
+/* ============================= */
+/* 📱 טלפון - עד 495px */
+/* ============================= */
+@media (max-width: 495px) {
+  .form input, textarea {
+    width: 95%;
+    font-size: 0.9rem;
+    padding: 0.6rem;
+  }
+
+  .form button {
+    width: 45%; /* שורה אחת עם שני כפתורים אם יש */
+    font-size: 0.9rem;
+    padding: 0.5rem 0.8rem;
+  }
+
+  .form h3 {
+    font-size: 1rem;
+  }
+}
+
+/* ============================= */
+/* 💻 טאבלט - עד 1398px */
+/* ============================= */
+@media (max-width: 1398px) {
+  .form input, textarea {
+    width: 90%;
+    font-size: 1rem;
+    padding: 0.7rem;
+  }
+
+  .form button {
+    width: 35%;
+    font-size: 1rem;
+    padding: 0.55rem 1rem;
+  }
+
+  .form h3 {
+    font-size: 1.2rem;
+  }
+}

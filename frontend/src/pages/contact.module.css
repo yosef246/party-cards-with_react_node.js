@@ -1,0 +1,169 @@
+.middle {
+  background: linear-gradient(to top, #030304, #222226);
+  height: 170vh;
+  position: relative;
+  color: aliceblue;
+  text-align: center;
+  padding-top: 2rem;
+}
+
+.sectiondivider {
+  border: none;
+  height: 4px;
+  background-color: rgba(200, 200, 200, 0.2);
+  margin: 3rem auto;
+  width: 65%;
+  border-radius: 2px;
+}
+
+/* סקשנים כלליים */
+.section1,
+.section2,
+.section3,
+.section4 {
+  margin-bottom: 6rem;
+}
+
+/* כותרות סקשנים */
+.section1 h2,
+.section2 h2,
+.section3 h2,
+.section4 h2 {
+  font-size: 1.8rem;
+  color: #61dafb;
+  margin: 2rem auto 1rem;
+  text-align: right;
+  max-width: 900px;
+}
+
+/* תוכן פסקאות */
+.section1 p,
+.section2 p,
+.section3 p,
+.section4 p {
+  font-size: 1.6rem;
+  margin: 1rem auto;
+  max-width: 900px;
+  text-align: right;
+}
+
+/* רשימות */
+.section4 ul,
+.section2 ul {
+  max-width: 900px;
+  margin: 1rem auto;
+  padding-right: 2rem;
+  list-style-type: none;
+  font-size: 1.8rem;
+}
+
+.section4 li,
+.section2 li {
+  margin-bottom: 1rem;
+}
+
+/* קישורים */
+.section2 a {
+  color: #61dafb;
+  text-decoration: underline;
+  font-weight: bold;
+  transition: color 0.3s ease;
+}
+
+.section2 a:hover {
+  color: #4fb5d6;
+}
+
+/* כפתור הנעה לפעולה */
+.cta {
+  text-align: center;
+  margin: 4rem 0;
+}
+
+.cta a {
+  background-color: #61dafb;
+  color: #000;
+  text-decoration: none;
+  padding: 14px 28px;
+  border-radius: 30px;
+  font-weight: bold;
+  font-size: 1.4rem;
+  transition: background-color 0.3s ease;
+  display: inline-block;
+}
+
+.cta a:hover {
+  background-color: #4fb5d6;
+}
+
+/* ============================= */
+/* 📱 טלפון - עד 495px */
+/* ============================= */
+@media (max-width: 495px) {
+  .middle {
+    height: auto;
+    padding: 1rem;
+    text-align: center;
+  }
+
+  .section1 h2,
+  .section2 h2,
+  .section3 h2,
+  .section4 h2 {
+    font-size: 1.4rem;
+    text-align: center;
+  }
+
+  .section1 p,
+  .section2 p,
+  .section3 p,
+  .section4 p {
+    font-size: 1rem;
+    text-align: center;
+  }
+
+  .section4 ul,
+  .section2 ul {
+    font-size: 1.1rem;
+    padding-right: 1rem;
+  }
+
+  .cta a {
+    font-size: 1rem;
+    padding: 10px 20px;
+  }
+}
+
+/* ============================= */
+/* 💻 טאבלט - עד 1398px */
+/* ============================= */
+@media (max-width: 1398px) {
+  .middle {
+    height: auto;
+    padding: 1.5rem;
+  }
+
+  .section1 h2,
+  .section2 h2,
+  .section3 h2,
+  .section4 h2 {
+    font-size: 1.6rem;
+  }
+
+  .section1 p,
+  .section2 p,
+  .section3 p,
+  .section4 p {
+    font-size: 1.3rem;
+  }
+
+  .section4 ul,
+  .section2 ul {
+    font-size: 1.4rem;
+  }
+
+  .cta a {
+    font-size: 1.2rem;
+    padding: 12px 24px;
+  }
+}

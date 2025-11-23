@@ -1,0 +1,223 @@
+.middle {
+  background: linear-gradient(to top, #030304, #222226);
+  height: 130vh;
+  position: relative;
+  color: aliceblue;
+  text-align: right;
+  padding: 2rem 2rem 0 2rem;
+  direction: rtl;
+}
+
+/* כפתור התפריט הצף */
+.menucontainer {
+  position:fixed;
+  right: 20px;
+  bottom: 4px;
+  z-index: 1000;
+}
+
+.mainbutton {
+  width: 60px;
+  height: 55px;
+  background-color: #306a90;
+  color: white;
+  border: none;
+  border-radius: 50%;
+  cursor: pointer;
+  font-size: 18px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 1rem;
+}
+
+.mainbutton:hover {
+  background-color: #016ad2;
+}
+
+.submenu {
+  display: none;
+  flex-direction: column-reverse;
+  margin-top: 15px;
+}
+
+.submenu.open {
+  display: flex;
+}
+
+.submenu button {
+  margin-top: 12px;
+  padding: 0.4rem 0.8rem;
+  background-color: #1976d2;
+  color: #fff;
+  border: none;
+  border-radius: 8px;
+  font-size: 0.85rem;
+  cursor: pointer;
+  transition: background 0.3s ease;
+  opacity: 0;
+  transform: translateY(20px);
+  animation: none;
+}
+
+.submenu.open button {
+  animation: bubbleIn 0.4s ease forwards;
+}
+
+.submenu.open button:nth-child(1) {
+  animation-delay: 0s;
+}
+.submenu.open button:nth-child(2) {
+  animation-delay: 0.1s;
+}
+.submenu.open button:nth-child(3) {
+  animation-delay: 0.2s;
+}
+
+@keyframes bubbleIn {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.submenu button:hover {
+  background-color: #125aa2;
+}
+
+
+.signup {
+  display: inline-block;
+  color: white;
+  border: none;
+  font-size: 15px;
+  text-decoration: none;
+}
+
+/* תיבת טופס */
+.container {
+  max-width: 500px;
+  margin: 0 auto;
+  padding: 2rem;
+  background: #242429;
+  border-radius: 2rem;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.08);
+  text-align: center;
+  direction: rtl;
+}
+
+.header {
+  margin-bottom: 1.5rem;
+}
+
+.header h2 {
+  font-size: 1.8rem;
+  color: #f8f6f6;
+  margin-bottom: 0.5rem;
+}
+
+.header p {
+  color: #f8f6f6;
+  font-size: 1rem;
+}
+
+.textarea,
+.form input {
+  width: 98%;
+  padding: 0.8rem;
+  margin-bottom: 1rem;
+  border: 1px solid #ccc;
+  border-radius: 1rem;
+  font-size: 1rem;
+}
+
+.form button {
+  margin: 10px;
+  background-color: #ff4081;
+  color: #fff;
+  border: none;
+  padding: 0.9rem 1.5rem;
+  border-radius: 1.5rem;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+.form button:hover {
+  background-color: #e73370;
+}
+
+/* ============================= */
+/* 📱 טלפון - עד 495px */
+/* ============================= */
+@media (max-width: 495px) {
+  .middle {
+    height: auto;
+    padding: 1rem;
+    text-align: center;
+  }
+
+  .menucontainer {
+    position: fixed;
+    top: auto;
+    bottom: 20px;
+    right: 10px;
+  }
+
+  .mainbutton {
+    position:fixed;
+    right: 10px;
+    bottom: 3px;
+    z-index: 1000;
+    width: 50px;
+    height: 50px;
+    font-size: 16px;
+    margin: 0.5rem;
+  }
+
+  .container {
+    width: 80%;
+    padding: 1.5rem;
+     height: auto;
+    padding: 20px;
+    margin: 40px auto;
+  }
+
+  .header h2 {
+    font-size: 1.4rem;
+  }
+
+  .form input,
+  .textarea {
+    font-size: 0.9rem;
+    width: 88%;
+  }
+
+  .form button {
+    width: 80%;
+    font-size: 0.95rem;
+  }
+}
+
+/* ============================= */
+/* 💻 טאבלט - עד 1398px */
+/* ============================= */
+@media (max-width: 1398px) {
+  .middle {
+    height: auto;
+    padding: 1.5rem;
+  }
+
+  .container {
+    max-width: 400px;
+  }
+
+  .header h2 {
+    font-size: 1.6rem;
+  }
+
+  .menucontainer {
+    top: 400px;
+    right: 15px;
+  }
+}

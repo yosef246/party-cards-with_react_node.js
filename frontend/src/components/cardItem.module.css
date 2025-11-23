@@ -1,0 +1,86 @@
+.card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  border-radius: 16px;
+  padding: 1rem;
+  margin: 1rem;
+  background: linear-gradient(to top, #21212c, #222226);
+  box-shadow: 0 0 30px rgba(0, 0, 0, 0.6);
+  max-width: 400px;
+}
+
+.image {
+  width: 100%;
+  border-radius: 12px;
+  object-fit: cover;
+}
+
+.content {
+  color: white;
+  unicode-bidi: embed;
+  text-align: right;
+  margin-top: 1rem;
+}
+
+.button {
+  margin-top: 1rem;
+  margin: 5px;
+  padding: 0.6rem 1rem;
+  background-color: #1976d2;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  text-decoration: none;
+  display: inline-block;
+  transition: background 0.3s;
+}
+
+.button:hover {
+  background-color: #0f5ba3;
+}
+
+/* ============================= */
+/* 📱 טלפון - עד 495px */
+/* ============================= */
+@media (max-width: 495px) {
+   .card {
+    max-width: none !important;   
+    margin: 0 !important;         
+    width: 98%;      
+    padding: 0.5rem;
+    box-sizing: border-box;
+  }
+  
+  .content {
+    font-size: 0.95rem;
+    text-align: center;
+  }
+
+  .button {
+    width: 90%;
+    padding: 0.5rem 0.8rem;
+    font-size: 0.9rem;
+  }
+}
+
+/* ============================= */
+/* 💻 טאבלט - עד 1398px */
+/* ============================= */
+@media (max-width: 1398px) {
+  .card {
+    max-width: 350px;
+    margin: 0.8rem auto;
+    padding: 0.9rem;
+  }
+
+  .content {
+    font-size: 1rem;
+  }
+
+  .button {
+    width: 80%;
+    padding: 0.55rem 1rem;
+    font-size: 1rem;
+  }
+}

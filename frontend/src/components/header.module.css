@@ -1,0 +1,169 @@
+.header {
+  background-color: #282c34;
+  padding: 20px;
+  color: white;
+  text-align: center;
+  position: relative; 
+}
+
+.signup {
+  display: inline-block;
+  background-color: #1976d2;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  margin-top: -7px;
+  font-size: 20px;
+  border-radius: 10px;
+  cursor: pointer;
+  text-decoration: none;
+  transition: background-color 0.3s ease;
+  text-align: center;
+}
+
+.signup:hover {
+  background-color: #19528b;
+}
+
+.title {
+  font-size: 2.5rem;
+  margin: 0;
+}
+
+.navList {
+  list-style: none;
+  padding: 0;
+  margin: 20px 0 0 auto;
+  display: flex;
+  justify-content: center;
+  gap: 40px;
+  width: fit-content;
+}
+
+.navLink {
+  color: #61dafb;
+  text-decoration: none;
+  font-size: 1.2rem;
+  transition: color 0.3s;
+}
+
+.navLink:hover {
+  color: white;
+}
+
+.icon {
+  color: #61dafb;
+  text-decoration: none;
+  font-size: 2rem;
+  font-weight: bold;
+  transition: color 0.3s;
+  position: absolute;  
+  left: 40px;
+  top: 30px;
+  z-index: 1000;
+}
+
+.icon:hover {
+  color: #edeff2;
+}
+
+/* כפתור המבורגר */
+.hamburger {
+  display: none; /*לא מראה אותו בגודל של מחשב*/
+  font-size: 32px;
+  cursor: pointer;
+  position: absolute;
+  right: 20px;
+  top: 15px;
+  user-select: none;
+}
+
+/* תפריט מובייל בבועה */
+.mobileMenu {
+  position: absolute;
+  top: 80px;
+  right: 20px;
+  background: #1e1f22;
+  padding: 20px;
+  border-radius: 18px;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.4);
+  z-index: 999;
+  opacity: 0;
+  transform: scale(0.9);
+  pointer-events: none; 
+  transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+.mobileMenu.open {
+  opacity: 1;
+  transform: scale(1);
+  pointer-events: auto;
+}
+
+.mobileMenu a {
+  color: #61dafb;
+  text-decoration: none;
+  font-size: 1.2rem;
+}
+
+/* ============================= */
+/* 💻 טלפון - עד 495 */
+/* ============================= */
+@media (max-width: 495px) {
+  .header{
+    padding: 30px 20px;
+    min-height: 20px; 
+    position: relative;
+  }
+
+  .icon {
+    font-size: 1.5rem;  
+    left: 60px; 
+    top: 33px;
+  }
+
+  .navList {
+    display: none;
+  }
+
+  .hamburger {
+    display: block;/*מראה אותו בגודל של טלפון רק*/
+    position: absolute;
+    right: 20px;
+    top: 20px;
+    font-size: 2rem;
+    cursor: pointer;
+    z-index: 1000;
+  }
+}
+
+/* ============================= */
+/* 💻 טאבלט - עד 1398px */
+/* ============================= */
+@media (max-width: 1398px) {
+  .title {
+    font-size: 2.2rem;
+  }
+
+  .signup {
+    font-size: 18px;
+    padding: 9px 18px;
+  }
+
+  .navList {
+    gap: 25px;
+  }
+
+  .navLink {
+    font-size: 1.1rem;
+  }
+
+  .icon {
+    font-size: 1.8rem;
+    margin-left: -50px;
+    transform: translateY(-10px);
+  }
+}
