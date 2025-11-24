@@ -13,7 +13,7 @@ export default function MyCards() {
     const checkAuth = async () => {
       try {
         const res = await fetch(
-          "https://backend-for-the-railway.vercel.app/api/auth/check-auth",
+          "https://backendfortherailway-production.up.railway.app/api/auth/check-auth",
           {
             credentials: "include",
           }
@@ -40,7 +40,7 @@ export default function MyCards() {
       setLoading(true);
       try {
         const response = await fetch(
-          "https://backend-for-the-railway.vercel.app/api/post/my-cards",
+          "https://backendfortherailway-production.up.railway.app/api/post/my-cards",
           {
             credentials: "include", // כדי לשלוח את הקוקי עם הטוקן
           }

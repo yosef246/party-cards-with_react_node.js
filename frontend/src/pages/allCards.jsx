@@ -14,7 +14,7 @@ export default function AllCards() {
     const checkAuth = async () => {
       try {
         const res = await fetch(
-          "https://backend-for-the-railway.vercel.app/api/auth/check-auth",
+          "https://backendfortherailway-production.up.railway.app/api/auth/check-auth",
           {
             credentials: "include",
           }
@@ -52,7 +52,7 @@ export default function AllCards() {
       setLoading(true);
       try {
         const response = await fetch(
-          "https://backend-for-the-railway.vercel.app/api/post/"
+          "https://backendfortherailway-production.up.railway.app/api/post/"
         );
 
         const data = await response.json();

@@ -37,7 +37,7 @@ export default function PaymentPage() {
     const checkAuth = async () => {
       try {
         const res = await fetch(
-          "https://backend-for-the-railway.vercel.app/api/auth/check-auth",
+          "https://backendfortherailway-production.up.railway.app/api/auth/check-auth",
           {
             credentials: "include", // כדי שהשרת יזהה את המשתמש מה-cookie
           }
@@ -69,7 +69,7 @@ export default function PaymentPage() {
 
     try {
       const res = await fetch(
-        "https://backend-for-the-railway.vercel.app/api/payment/topay",
+        "https://backendfortherailway-production.up.railway.app/api/payment/topay",
         {
           method: "POST",
           headers: {
@@ -103,7 +103,7 @@ export default function PaymentPage() {
     setLoading(true);
     try {
       const res = await fetch(
-        "https://backend-for-the-railway.vercel.app/api/payment/deletepay",
+        "https://backendfortherailway-production.up.railway.app/api/payment/deletepay",
         {
           method: "DELETE",
           credentials: "include", //גורם לדפדפן לשלוח את הקוקיז אוטומטית לשרת

@@ -15,7 +15,7 @@ export default function EditPostForm({ id, post, onUpdate, onCancel }) {
 
     try {
       const response = await fetch(
-        `https://backend-for-the-railway.vercel.app/api/post/${id}`,
+        `https://backendfortherailway-production.up.railway.app/api/post/${id}`,
         {
           method: "PUT",
           headers: {
