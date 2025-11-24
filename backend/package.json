@@ -1,8 +1,11 @@
 {
-  "name": "final_project_in_node",
+  "name": "party_cards_with_nodejs",
   "version": "1.0.0",
   "main": "index.js",
   "type": "module",
+  "engines": {
+    "node": "24.x"
+  },
   "scripts": {
     "start": "node final_project/app.js",
     "test": "echo \"Error: no test specified\" && exit 1"
@@ -21,12 +24,10 @@
     "express": "^4.21.2",
     "joi": "^17.13.3",
     "joi-objectid": "^4.0.2",
-    "jsdom": "^27.2.0",
+    "jsdom": "^20.0.3",
     "jsonwebtoken": "^9.0.2",
-    "langchain": "^0.3.31",
     "mongoose": "^8.12.1",
     "nodemon": "^3.1.9",
-    "openai": "^5.15.0",
-    "serverless-http": "^4.0.0"
+    "openai": "^5.15.0"
   }
 }
