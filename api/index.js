@@ -4,12 +4,12 @@ import cors from "cors";
 import dotenv from "dotenv";
 import serverless from "serverless-http";
 
-import newUserRouter from "../final_project/routes/auth.js";
-import postRouter from "../final_project/routes/post.js";
-import tagRouter from "../final_project/routes/tag.js";
-import paymentRouter from "../final_project/routes/payment.js";
+import newUserRouter from "../backend/final_project/routes/auth.js";
+import postRouter from "../backend/final_project/routes/post.js";
+import tagRouter from "../backend/final_project/routes/tag.js";
+import paymentRouter from "../backend/final_project/routes/payment.js";
 
-import connectToMongoDB from "../utils/conectDB.js";
+import connectToMongoDB from "../backend/utils/conectDB.js";
 
 const app = express();
 // const port = 3003;
