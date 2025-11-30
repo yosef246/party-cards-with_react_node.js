@@ -1,11 +1,11 @@
 import { Router } from "express";
 import bcrypt from "bcryptjs";
 import jwt from "jsonwebtoken";
-import purify from "../../utils/sanitize.js";
+import purify from "../utils/sanitize.js";
 import { loginValitation, registerValitation } from "../../valitations/user.js";
 import NewUser from "../models/user.js";
-import { generateToken } from "../../utils/token.js";
-import { verifyToken } from "../../utils/token.js";
+import { generateToken } from "../utils/token.js";
+import { verifyToken } from "../utils/token.js";
 
 const router = Router();
 
