@@ -5,8 +5,8 @@ import purify from "../../utils/sanitize.js";
 import {
   createPostValitation,
   updatePostValitation,
-} from "../../valitations/post.js";
-import { isAdmin, verifyToken } from "../../utils/token.js";
+} from "../valitations/post.js";
+import { isAdmin, verifyToken } from "../utils/token.js";
 
 const router = Router();
 
