@@ -85,52 +85,52 @@ router.post("/forgot-password", async (req, res) => {
   }
 });
 
-// router.post("/login", async (req, res) => {
-//   //עובר לי גם על שם פרטי שם משפחה וגם על אימייל שלא נכנס אליהם קוד זדוני
-//   Object.keys(req.body).forEach((key) => {
-//     req.body[key] = purify.sanitize(req.body[key]); //מנקה לך את הקוד שנכנס מקטעי קוד או סקריפטים זדוניים
-//   });
+router.post("/login", async (req, res) => {
+  //עובר לי גם על שם פרטי שם משפחה וגם על אימייל שלא נכנס אליהם קוד זדוני
+  Object.keys(req.body).forEach((key) => {
+    req.body[key] = purify.sanitize(req.body[key]); //מנקה לך את הקוד שנכנס מקטעי קוד או סקריפטים זדוניים
+  });
 
-//   const { error } = loginValitation.validate(req.body);
-//   if (error) return res.status(400).json({ message: error.details[0].message });
+  const { error } = loginValitation.validate(req.body);
+  if (error) return res.status(400).json({ message: error.details[0].message });
 
-//   try {
-//     const user = await NewUser.findOne({ email: req.body.email });
-//     if (!user)
-//       return res.status(400).json({ message: "אמייל או סיסמא שגויים" });
+  try {
+    const user = await NewUser.findOne({ email: req.body.email });
+    if (!user)
+      return res.status(400).json({ message: "אמייל או סיסמא שגויים" });
 
-//     //משווה לי את הסיסמא שהכנסתי לסיסמא שקיימת כבר למשתמש הזה
-//     const validPassword = await bcrypt.compare(
-//       req.body.password, //הסיסמא שהכנסתי
-//       user.password //הסיסמא הקיימת
-//     );
-//     if (!validPassword)
-//       return res.status(400).json({ message: "אמייל או סיסמא שגויים" });
+    //משווה לי את הסיסמא שהכנסתי לסיסמא שקיימת כבר למשתמש הזה
+    const validPassword = await bcrypt.compare(
+      req.body.password, //הסיסמא שהכנסתי
+      user.password //הסיסמא הקיימת
+    );
+    if (!validPassword)
+      return res.status(400).json({ message: "אמייל או סיסמא שגויים" });
 
-//     //יצירת טוקאן
-//     const tokenProps = {
-//       id: user._id,
-//       email: user.email,
-//       isAdmin: user.isAdmin,
-//       hasPaid: user.hasPaid,
-//     };
-//     const token = generateToken(tokenProps);
-//     //יצירת טוקאן
+    //יצירת טוקאן
+    const tokenProps = {
+      id: user._id,
+      email: user.email,
+      isAdmin: user.isAdmin,
+      hasPaid: user.hasPaid,
+    };
+    const token = generateToken(tokenProps);
+    //יצירת טוקאן
 
-//     res
-//       .cookie("access_token", token, {
-//         httpOnly: true,
-//         secure: true,
-//         sameSite: "none",
-//         path: "/",
-//       }) //יצירת קוקיז לטוקאן
-//       .status(200)
-//       .json({ message: "login seccessfuly !", user: user });
-//   } catch (error) {
-//     console.log(error);
-//     res.status(500).json({ message: "Somthing went wrong with login User !" });
-//   }
-// });
+    res
+      .cookie("access_token", token, {
+        httpOnly: true,
+        secure: true,
+        sameSite: "none",
+        path: "/",
+      }) //יצירת קוקיז לטוקאן
+      .status(200)
+      .json({ message: "login seccessfuly !", user: user });
+  } catch (error) {
+    console.log(error);
+    res.status(500).json({ message: "Somthing went wrong with login User !" });
+  }
+});
 
 router.get("/check-auth", [verifyToken], async (req, res) => {
   try {
@@ -159,11 +159,6 @@ router.post("/logout", async (req, res) => {
   } catch (error) {
     res.status(500).send({ message: "שגיאה בהתנתקות" });
   }
-});
-
-router.post("/login", (req, res) => {
-  console.log("Login route hit!");
-  res.json({ message: "Login route works" });
 });
 
 export default router;
