@@ -12,7 +12,7 @@ export default function CardDetails() {
     const checkAuth = async () => {
       try {
         const res = await fetch(
-          "https://backendfortherailway-production.up.railway.app/api/auth/check-auth",
+          "https://party-cards-with-react-node-js.vercel.app/api/auth/check-auth",
           {
             credentials: "include",
           }
@@ -38,7 +38,7 @@ export default function CardDetails() {
     async function fetchCard() {
       try {
         const response = await fetch(
-          `https://backendfortherailway-production.up.railway.app/api/post/${id}`,
+          `https://party-cards-with-react-node-js.vercel.app/api/post/${id}`,
           {
             credentials: "include",
           }
