@@ -93,12 +93,12 @@ router.post("/login", async (req, res) => {
   });
 
   const { error } = loginValitation.validate(req.body);
-  if (error) return res.status(400).send({ message: error.details[0].message });
+  if (error) return res.status(400).json({ message: error.details[0].message });
 
   try {
     const user = await NewUser.findOne({ email: req.body.email });
     if (!user)
-      return res.status(400).send({ message: "אמייל או סיסמא שגויים" });
+      return res.status(400).json({ message: "אמייל או סיסמא שגויים" });
 
     //משווה לי את הסיסמא שהכנסתי לסיסמא שקיימת כבר למשתמש הזה
     const validPassword = await bcrypt.compare(
@@ -106,7 +106,7 @@ router.post("/login", async (req, res) => {
       user.password //הסיסמא הקיימת
     );
     if (!validPassword)
-      return res.status(400).send({ message: "אמייל או סיסמא שגויים" });
+      return res.status(400).json({ message: "אמייל או סיסמא שגויים" });
 
     //יצירת טוקאן
     const tokenProps = {
@@ -126,10 +126,10 @@ router.post("/login", async (req, res) => {
         path: "/",
       }) //יצירת קוקיז לטוקאן
       .status(200)
-      .send({ message: "login seccessfuly !", user: user });
+      .json({ message: "login seccessfuly !", user: user });
   } catch (error) {
     console.log(error);
-    res.status(500).send({ message: "Somthing went wrong with login User !" });
+    res.status(500).json({ message: "Somthing went wrong with login User !" });
   }
 });
 
